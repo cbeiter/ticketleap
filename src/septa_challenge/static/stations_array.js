@@ -1,3 +1,4 @@
+var SeptaStations =
 [
   {
     "connections": "Market\u2013Frankford Line\nRoute 10\nRoute 11\nRoute 13\nRoute 34\nRoute 36\nAmtrak:\nKeystone Corridor\nNortheast Corridor\nNew Jersey Transit:Atlantic City Line",
@@ -1070,4 +1071,4 @@
     "name": "Yardley",
     "city": "Yardley"
   }
-]
+];
