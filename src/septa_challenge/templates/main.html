@@ -1,113 +1,233 @@
 {% load static %}
 <html>
-    <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <style>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-body { 
-    background-color: #ecf0f1;
-}
-.container { 
-    background-color: white;
-    min-height: 800px;
-}
+  <script src="{% static 'stations_array.js' %}"></script>
+  <script src="{% static 'Tracker9000.js' %}"></script>
+  <style>
 
-.navbar-default {
-    background-color: #394ba3;
-    background-image: none;
-    background-repeat: no-repeat;
-}
-.navbar-default .navbar-brand {
-    color: #ecf0f1;
-}
-.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #ffffff;
-}
-.navbar-default .navbar-text {
-    color: #ecf0f1;
-}
-.navbar-default .navbar-nav > li > a {
-    color: #ecf0f1;
-}
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #ffffff;
-}
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-    color: #ffffff;
-    background-color: #000000;
-}
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #ffffff;
-    background-color: #000000;
-}
-.navbar-default .navbar-toggle {
-    border-color: #000000;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #000000;
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #ecf0f1;
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-    border-color: #ecf0f1;
-}
-.navbar-default .navbar-link {
-    color: #ecf0f1;
-}
-.navbar-default .navbar-link:hover {
-    color: #ffffff;
-}
+    body {
+      background-color: #ecf0f1;
+    }
 
-@media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    table, td, th {
+      border: 1px solid black;
+    }
+
+    td, th {
+      padding: 5px;
+    }
+
+    .hidden {
+      display:none;
+    }
+
+    #trackerTable {
+      width:100%;
+    }
+
+    #trackerTable thead {
+      background-color: #ecf0f1;
+    }
+
+    #trackerTable td.late {
+      background-color:yellow;
+      font-weight:bold;
+    }
+
+    .trackerInfo {
+      text-align: center;
+      font-size:14pt;
+    }
+
+    .trackerInfo td {
+      padding: 50px;
+    }
+
+    #trackerForm button {
+      border: 1px solid black;
+      background-color: #ecf0f1;
+    }
+
+    select {
+      font-size:15px;
+      margin-left:10px;
+      margin-right:10px;
+    }
+
+    .container {
+      background-color: white;
+      min-height: 800px;
+    }
+
+    .navbar-default {
+      background-color: #394ba3;
+      background-image: none;
+      background-repeat: no-repeat;
+    }
+
+    .navbar-default .navbar-brand {
+      color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+      color: #ffffff;
+    }
+
+    .navbar-default .navbar-text {
+      color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav > li > a {
+      color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+      color: #ffffff;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+      color: #ffffff;
+      background-color: #000000;
+    }
+
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+      color: #ffffff;
+      background-color: #000000;
+    }
+
+    .navbar-default .navbar-toggle {
+      border-color: #000000;
+    }
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+      background-color: #000000;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+      background-color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+      border-color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-link {
+      color: #ecf0f1;
+    }
+
+    .navbar-default .navbar-link:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 767px) {
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #ecf0f1;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+      }
+
+      .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #ffffff;
-    }
-    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+      }
+
+      .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
         color: #ffffff;
         background-color: #000000;
+      }
     }
-}
-        </style>
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">SEPTA Tracker 9000</a>
-                </div>
-            </div>
-        </nav>
-        <div class="container" style="background-color: white">
-            <h2>
-                Train Status
-            </h2>
-            <div class="panel">
-                <form>
-                    <label> Starting Station </label> <select> </select>
-                    <label> Ending Station </label> <select> </select>
-                    <button> Go! </button>
-                </form>
-            </div>
-            <p> <span class="lead"> The SEPTA Tracker 9000 </span> is really cool.  But right now it doesn't do a whole lot. How you do it is up to you, but I should see a table of trains and their departure, arrival times, and on-time status here.  <b> Do not </b> spend more than an hour or two making this happen, and get as far as you can.  It would be cool if the app updated automatically with new information, say, every thirty seconds, but only tackle that if you have extra time.  
-            If Django/Python is your thing, you should find this skeleton helpful.  If JavaScript is more your thing, you might find the contents of ../fixtures/ helpful in getting your station options above. </p>
-            <p>
-            <b>Hint:</b> When making API calls to SEPTA, you might find that they work great on everything except airport terminals.  
-            Because of their ampersands, presumably, SEPTA has decided that while the station name is, for example, 
-            'Airport Terminals E &amp; F', the API call must refer to it as "Aiport Terminal E-F".  
-            You should handle this issue.
-            </p>
-            <p>
-            <b>Hint:</b> SEPTA's API <a href="http://www3.septa.org/">documentation</a> might help you if you get stuck or want to know
-            more about the structure of the data.  
-            </b>
-        </div>
-    </body>
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SEPTA Tracker 9000</a>
+    </div>
+  </div>
+</nav>
+<div class="container" style="background-color: white">
+  <h2>
+    Train Status
+  </h2>
+
+  <div class="panel">
+    <form id="trackerForm">
+
+      <label> Starting Station </label> <select id="startStation"> </select>
+      <label> Ending Station </label> <select id="endStation"> </select>
+      <button id="submit"> Go!</button>
+    </form>
+  </div>
+  <table id="trackerTable">
+    <thead>
+      <tr>
+        <th>Train ID</th>
+        <th>Line</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="trackerTableBody">
+      <tr class="trackerInfo">
+        <td colspan="5">
+          Select start and stop stations, then click GO.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br/><br/><br/><br/>
+
+<!--
+
+  <p>
+    You have been tasked with making a very simple application that allows riders to see what trains they can catch, and
+    whether they’re on time.
+    To do this, you will take advantage of SEPTA’s train status API:
+    <br/><br/>
+    http://www3.septa.org/hackathon/NextToArrive/?req1=Swarthmore&req2=30th+Street+Station
+    <br/><br/>
+    (The URL structure for the request is pretty straightforward - the example here is for trains from Swarthmore to
+    30th Street Station)
+    <br/><br/>
+    You’ve been provided a simple one-page Django that renders the shell of the page. Your job is to add a table to the
+    page which displays the trains returned by the API call, their scheduled departure time, arrival time, and whether
+    they’re running late or on time.
+    <br/><br/>
+    This data should be current as of each page load, but unless you’ve got some time leftover don’t worry about trying
+    to make the updates live. There are many ways to accomplish this task on both the server and the client side, so go
+    with what you’re familiar with.
+    <br/><br/>
+    <span class="lead"> The SEPTA Tracker 9000 </span> is really cool. But right now it doesn't do a whole lot. How you
+    do it is up to you, but I should see a table of trains and their departure, arrival times, and on-time status here.
+    <b> Do not </b> spend more than an hour or two making this happen, and get as far as you can. It would be cool if
+    the app updated automatically with new information, say, every thirty seconds, but only tackle that if you have
+    extra time.
+    If Django/Python is your thing, you should find this skeleton helpful. If JavaScript is more your thing, you might
+    find the contents of ../fixtures/ helpful in getting your station options above. </p>
+
+  <p>
+    <b>Hint:</b> When making API calls to SEPTA, you might find that they work great on everything except airport
+    terminals.
+    Because of their ampersands, presumably, SEPTA has decided that while the station name is, for example,
+    'Airport Terminals E &amp; F', the API call must refer to it as "Aiport Terminal E-F".
+    You should handle this issue.
+  </p>
+
+  <p>
+    <b>Hint:</b> SEPTA's API <a href="http://www3.septa.org/">documentation</a> might help you if you get stuck or want
+    to know
+    more about the structure of the data.
+    </b>
+
+    Array
+
+    -->
+</div>
+</body>
 </html>
 

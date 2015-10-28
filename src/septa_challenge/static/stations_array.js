@@ -12,6 +12,7 @@ var SeptaStations =
     "fare_zone": "1",
     "lines": "Media/Elwyn Line",
     "name": "49th Street Station",
+    "code": "49th St",
     "city": "Philadelphia (Kingessing)"
   },
   {
@@ -33,6 +34,7 @@ var SeptaStations =
     "fare_zone": "4",
     "lines": "Airport Line",
     "name": "Airport Terminals C & D",
+      "code":"Airport Terminal C-D",
     "city": "Philadelphia (Airport)"
   },
   {
@@ -40,6 +42,7 @@ var SeptaStations =
     "fare_zone": "4",
     "lines": "Airport Line",
     "name": "Airport Terminals E & F",
+      "code": "Airport Terminal E-F",
     "city": "Philadelphia (Airport)"
   },
   {
@@ -159,6 +162,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Wilmington/Newark Line",
     "name": "Chester Transportation Center",
+      "code": "Chester TC",
     "city": "Chester"
   },
   {
@@ -179,7 +183,7 @@ var SeptaStations =
     "connections": "N/A",
     "fare_zone": "4",
     "lines": "Wilmington/Newark Line",
-    "name": "Churchmans Crossing[41",
+    "name": "Churchmans Crossing",
     "city": "Christiana, Delaware"
   },
   {
