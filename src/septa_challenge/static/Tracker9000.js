@@ -52,8 +52,8 @@ var tracker9000 = (function () {
      *
      */
     function getTrainData() {
+        submitLocked = true;
         removeCurrentRows(function() {
-            submitLocked = true;
             $startStation = $("#startStation");
             $endStation = $("#endStation");
 
