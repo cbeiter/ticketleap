@@ -55,6 +55,11 @@ var tracker9000 = (function () {
         var startStation = encodeURIComponent($("#startStation").val());
         var endStation = encodeURIComponent($('#endStation').val());
 
+        if(startStation === endStation){
+            alert('End station must be different than start station.\n\nPlease change your selections and try again.');
+            return;
+        }
+
         var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + startStation +
             "&req2=" + endStation;
 
