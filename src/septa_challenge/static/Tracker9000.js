@@ -120,7 +120,7 @@ var tracker9000 = (function () {
     }
 
     /**
-     * inspects data object for various conditions and draws error as appropriqte
+     * inspects data object for various conditions and draws error as appropriate
      *
      * @param data
      * @param status

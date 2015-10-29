@@ -48,15 +48,27 @@
       padding: 50px;
     }
 
+    #trackerForm {
+      padding-left:25px;
+    }
+
     #trackerForm button {
       border: 1px solid black;
       background-color: #ecf0f1;
+      width:150px;
     }
 
-    select {
+    #trackerForm label {
+      font-weight:normal;
+      width:125px;
+    }
+
+    #trackerForm select {
+      width: 175px;
       font-size:15px;
       margin-left:10px;
       margin-right:10px;
+      border:1px solid black;
     }
 
     .container {
@@ -159,7 +171,7 @@
 
       <label> Starting Station </label> <select id="startStation"> </select><br/>
       <label> Ending Station </label> <select id="endStation"> </select>
-      <button id="submit"> Go!</button>
+      <button id="submit">Find Next Train</button>
     </form>
   </div>
   <table id="trackerTable">
