@@ -83,12 +83,24 @@ var tracker9000 = (function () {
         submitLocked = false;
     }
 
+    /**
+     * Generic error handler for ajax calls
+     *
+     * @param jqXHR
+     * @param textStatus
+     * @param errorThrown
+     */
     function ajaxFailure(jqXHR, textStatus, errorThrown){
         removeCurrentRows(function() {
             drawErrors("Unknown error encountered. Please try again.")
         });
     }
 
+    /**
+     * Try to avoid memory leaks by emptying the old rows and centralizing animation
+     *
+     * @param next
+     */
     function removeCurrentRows(next) {
         $trackerTableBody.fadeOut(animationDuration, function() {
             $trackerTableBody.empty();
@@ -96,6 +108,11 @@ var tracker9000 = (function () {
         });
     }
 
+    /**
+     * Template for error row
+     *
+     * @param strError
+     */
     function drawErrors(strError) {
         var strRow = "<tr class='trackerInfo'><td colspan='5'>" + strError + "</td></tr>";
         $trackerTableBody.append(strRow);
@@ -138,27 +155,25 @@ var tracker9000 = (function () {
      * @param jqXHR
      */
     function processTrainData(data, status, jqXHR) {
-        removeCurrentRows(function() {
-            if(!validateData(data, status, jqXHR)) {
-                var strRow;
+        if(!validateData(data, status, jqXHR)) {
+            var strRow;
 
-                for(var i = 0; i < data.length; i++) {
-                    strRow = '<tr><td>' + data[i].orig_train +
-                    '</td><td>' + data[i].orig_line +
-                    '</td><td>' + data[i].orig_departure_time +
-                    '</td><td>' + data[i].orig_arrival_time +
-                    '</td><td' + (data[i].orig_delay.toLowerCase() !== 'on time' ? ' class="late"' : '') +
-                    '>' + data[i].orig_delay +
-                    '</td></tr>';
+            for(var i = 0; i < data.length; i++) {
+                strRow = '<tr><td>' + data[i].orig_train +
+                '</td><td>' + data[i].orig_line +
+                '</td><td>' + data[i].orig_departure_time +
+                '</td><td>' + data[i].orig_arrival_time +
+                '</td><td' + (data[i].orig_delay.toLowerCase() !== 'on time' ? ' class="late"' : '') +
+                '>' + data[i].orig_delay +
+                '</td></tr>';
 
-                    var $row = $(strRow);
-                    $trackerTableBody.append($row);
+                var $row = $(strRow);
+                $trackerTableBody.append($row);
 
-                }
-
-                $trackerTableBody.fadeIn(animationDuration, function(){});
             }
-        });
+
+            $trackerTableBody.fadeIn(animationDuration, function(){});
+        }
 
     }
 
