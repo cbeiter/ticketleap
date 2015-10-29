@@ -11,6 +11,8 @@ var tracker9000 = (function () {
     var $trackerTableBody;
     var $trackerInfo;
     var $trackerForm;
+    var $startStation;
+    var $endStation;
 
     var animationDuration = 400;
     var submitLocked = false;
@@ -52,16 +54,17 @@ var tracker9000 = (function () {
     function getTrainData() {
         removeCurrentRows(function() {
             submitLocked = true;
-            var startStation = encodeURIComponent($("#startStation").val());
-            var endStation = encodeURIComponent($('#endStation').val());
+            $startStation = $("#startStation");
+            $endStation = $("#endStation");
 
-            if(startStation === endStation){
+            if($startStation.val() === $endStation.val()){
                 drawErrors('End station must be different than start station.<p/>Please change your selections and try again.');
+                $endStation.focus();
                 return;
             }
 
-            var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + startStation +
-                "&req2=" + endStation;
+            var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + encodeURIComponent($startStation.val()) +
+                "&req2=" + encodeURIComponent($endStation.val());
 
 
                 $.ajax(septaApi,
