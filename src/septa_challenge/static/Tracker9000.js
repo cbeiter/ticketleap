@@ -50,28 +50,26 @@ var tracker9000 = (function () {
      *
      */
     function getTrainData() {
-
-        submitLocked = true;
-        var startStation = encodeURIComponent($("#startStation").val());
-        var endStation = encodeURIComponent($('#endStation').val());
-
-        if(startStation === endStation){
-            alert('End station must be different than start station.\n\nPlease change your selections and try again.');
-            return;
-        }
-
-        var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + startStation +
-            "&req2=" + endStation;
-
         removeCurrentRows(function() {
-            $.ajax(septaApi,
-                {dataType: 'jsonp',
-                    contentType: "application/jsonp; charset=utf-8",
-                    beforeSend: addHeaders,
-                    success: processTrainData}).complete(completeApiCall).fail(ajaxFailure);
-        });
+            submitLocked = true;
+            var startStation = encodeURIComponent($("#startStation").val());
+            var endStation = encodeURIComponent($('#endStation').val());
+
+            if(startStation === endStation){
+                drawErrors('End station must be different than start station.<p/>Please change your selections and try again.');
+                return;
+            }
+
+            var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + startStation +
+                "&req2=" + endStation;
 
 
+                $.ajax(septaApi,
+                    {dataType: 'jsonp',
+                        contentType: "application/jsonp; charset=utf-8",
+                        beforeSend: addHeaders,
+                        success: processTrainData}).complete(completeApiCall).fail(ajaxFailure);
+            });
     }
 
     /**
