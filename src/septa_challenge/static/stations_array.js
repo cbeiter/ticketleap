@@ -687,7 +687,7 @@ var SeptaStations =
     "connections": "Broad Street Line\nAmtrak:\nNortheast Corridor",
     "fare_zone": "1",
     "lines": "Chestnut Hill West Line\nTrenton Line",
-    "name": "North Philadelphia[114]",
+    "name": "North Philadelphia",
     "city": "Philadelphia (Glenwood)"
   },
   {

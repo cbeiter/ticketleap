@@ -20,9 +20,7 @@ var tracker9000 = (function () {
             var $stationSelect = $("<select>");
 
             for(var i = 0; i < SeptaStations.length; i++) {
-                // strip off & from airport names
-                // doing this as a replace to save time, as doing a search and then replace will
-                // search the strings twice when it finds the match on the first and then again to find to replace
+                // Use special codes instead of display name if they are present
                 var val = SeptaStations[i].code ? SeptaStations[i].code : SeptaStations[i].name;
 
                 $stationSelect.append("<option value='" + val + "'>" + SeptaStations[i].name + "</option>");
@@ -60,11 +58,14 @@ var tracker9000 = (function () {
         var septaApi = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + startStation +
             "&req2=" + endStation;
 
-        $.ajax(septaApi,
-            {dataType: 'jsonp',
-                contentType: "application/jsonp; charset=utf-8",
-                beforeSend: addHeaders,
-                success: processTrainData}).complete(completeApiCall).fail(ajaxFailure);
+        removeCurrentRows(function() {
+            $.ajax(septaApi,
+                {dataType: 'jsonp',
+                    contentType: "application/jsonp; charset=utf-8",
+                    beforeSend: addHeaders,
+                    success: processTrainData}).complete(completeApiCall).fail(ajaxFailure);
+        });
+
 
     }
 
@@ -113,7 +114,7 @@ var tracker9000 = (function () {
         var strError;
 
         if(!data || data.length === 0) {
-            strError = "No data returned. Please try again."
+            strError = "No data returned.<p/>Verify you are checking for a train during SEPTA operating hours."
         }
         else if (status !== 'success') {
             strError = "Error returned from SEPTA. Status code: " + status.toString();
@@ -152,8 +153,10 @@ var tracker9000 = (function () {
 
                     var $row = $(strRow);
                     $trackerTableBody.append($row);
-                    $trackerTableBody.fadeIn(animationDuration, function(){});
+
                 }
+
+                $trackerTableBody.fadeIn(animationDuration, function(){});
             }
         });
 
