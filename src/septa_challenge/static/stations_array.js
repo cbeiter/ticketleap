@@ -338,6 +338,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Manayunk/Norristown Line",
     "name": "Elm Street, Norristown",
+      "code":"Elm St",
     "city": "Norristown"
   },
   {
@@ -345,6 +346,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Media/Elwyn Line",
     "name": "Elwyn",
+      "code": "Elwyn Station",
     "city": "Elwyn"
   },
   {
@@ -359,6 +361,7 @@ var SeptaStations =
     "fare_zone": "1",
     "lines": "Lansdale/Doylestown Line\nWarminster Line\nWest Trenton Line",
     "name": "Fern Rock Transportation Center",
+      "code":"Fern Rock TC",
     "city": "Philadelphia (Fern Rock)"
   },
   {
@@ -366,6 +369,7 @@ var SeptaStations =
     "fare_zone": "2",
     "lines": "Media/Elwyn Line",
     "name": "Fernwood\u2013Yeadon",
+      "code": "Fernwood",
     "city": "Upper Darby Twp./Yeadon[68]"
   },
   {
@@ -387,6 +391,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Lansdale/Doylestown Line",
     "name": "Fort Washington",
+      "code":"Ft Washington",
     "city": "Fort Washington"
   },
   {
@@ -478,6 +483,7 @@ var SeptaStations =
     "fare_zone": "4",
     "lines": "Trenton Line",
     "name": "Holmesburg Junction",
+      "code":"Holmesburg Jct",
     "city": "Philadelphia (Holmesburg)"
   },
   {
@@ -492,6 +498,7 @@ var SeptaStations =
     "fare_zone": "CCP",
     "lines": "Airport Line\nChestnut Hill East Line\nChestnut Hill West Line\nFox Chase Line\nLansdale/Doylestown Line\nManayunk/Norristown Line\nMedia/Elwyn Line\nPaoli/Thorndale Line\nTrenton Line\nWarminster Line\nWest Trenton Line\nWilmington/Newark Line",
     "name": "Jefferson Station",
+      "code": "Market East",
     "city": "Philadelphia (Market East)"
   },
   {
@@ -548,6 +555,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Manayunk/Norristown Line",
     "name": "Main Street, Norristown",
+      "code": "Main St",
     "city": "Norristown"
   },
   {
@@ -667,6 +675,7 @@ var SeptaStations =
     "fare_zone": "3",
     "lines": "Manayunk/Norristown Line",
     "name": "Norristown Transportation Center",
+      "code": "Norristown TC",
     "city": "Norristown"
   },
   {
@@ -674,6 +683,7 @@ var SeptaStations =
     "fare_zone": "1",
     "lines": "Lansdale/Doylestown Line\nManayunk/Norristown Line",
     "name": "North Broad",
+      "code": "North Broad St",
     "city": "Philadelphia (Glenwood)"
   },
   {
@@ -905,6 +915,7 @@ var SeptaStations =
     "fare_zone": "CCP",
     "lines": "Airport Line\nChestnut Hill East Line\nChestnut Hill West Line\nFox Chase Line\nLansdale/Doylestown Line\nManayunk/Norristown Line\nMedia/Elwyn Line\nPaoli/Thorndale Line\nTrenton Line\nWarminster Line\nWest Trenton Line\nWilmington/Newark Line",
     "name": "Temple University",
+      "code": "Temple U",
     "city": "Philadelphia (Temple University)"
   },
   {
@@ -926,6 +937,7 @@ var SeptaStations =
     "fare_zone": "NJ",
     "lines": "Trenton Line",
     "name": "Trenton Transit Center",
+      "code": "Trenton",
     "city": "Trenton, New Jersey"
   },
   {
@@ -996,6 +1008,7 @@ var SeptaStations =
     "fare_zone": "1",
     "lines": "Chestnut Hill East Line\nFox Chase Line\nLansdale/Doylestown Line\nWarminster Line\nWest Trenton Line",
     "name": "Wayne Junction",
+      "code": "Wayne Jct",
     "city": "Philadelphia (Nicetown)"
   },
   {
